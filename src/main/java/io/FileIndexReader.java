@@ -34,6 +34,12 @@ public class FileIndexReader {
     private ReadWriteLock lock;
     private final File file;
 
+    /**
+     * FileIndexReader constructor
+     *
+     * @param filename
+     * @throws IOException
+     */
     public FileIndexReader(String filename) throws IOException {
         StringBuilder sb = new StringBuilder();
         sb.append(Configuration.getResourcePath());

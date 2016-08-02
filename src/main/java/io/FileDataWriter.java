@@ -50,6 +50,12 @@ public class FileDataWriter {
         writeExecutor = Executors.newFixedThreadPool(Configuration.FILE_DATA_BLOCK_WRITER_THREADS);
     }
 
+    /**
+     * FileDataWriter constructor
+     *
+     * @param filename
+     * @throws IOException
+     */
     public FileDataWriter(String filename) throws IOException {
         StringBuilder sb = new StringBuilder();
         sb.append(Configuration.getResourcePath());
@@ -66,6 +72,13 @@ public class FileDataWriter {
         }
     }
 
+    /**
+     * Writes a set of blocks in a file using the specific write threads.
+     *
+     * @param dataBlocks
+     * @return
+     * @throws IOException
+     */
     public Boolean writeDataBlocks(List<FileDataBlock> dataBlocks) throws IOException {
         Integer dataBlocksPerThread = 1;
         if(dataBlocks.size() > Configuration.FILE_DATA_BLOCK_WRITER_THREADS) {
@@ -148,6 +161,9 @@ public class FileDataWriter {
         return task;
     }
 
+    /**
+     * Stops the write threads.
+     */
     public static void shutdownWriteThreads() {
         writeExecutor.shutdown();
     }

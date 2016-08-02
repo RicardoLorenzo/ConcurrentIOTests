@@ -28,15 +28,30 @@ import java.util.List;
 import java.util.Arrays;
 import java.util.Random;
 
+/**
+ * This class only exists just for the matter of example. It executes both applications but it is irrelevant
+ * apart from that.
+ *
+ * @author Ricardo Lorenzo <unshakablespirit@gmail.com>
+ */
 public class ConcurrentIOTests {
 
+    /**
+     * Main method.
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         /**
          * Concurrent MMAP text file search
          */
         concurrentMmapFileTextSearch();
+
+        /**
+         * Simple object database case. This will basically run a simple test.
+         */
         try {
-            simpleDocumentDatabase();
+            simpleObjectDatabase();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -65,7 +80,7 @@ public class ConcurrentIOTests {
         }
     }
 
-    private static void simpleDocumentDatabase() throws InterruptedException {
+    private static void simpleObjectDatabase() throws InterruptedException {
         List<Document> documents = new ArrayList<>();
         List<String> documentNames = Arrays.asList(new String[] { "test1", "test2", "test3", "test4",
           "test5", "test6" });

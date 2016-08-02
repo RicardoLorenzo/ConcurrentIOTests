@@ -23,6 +23,8 @@ import java.util.Base64;
 /**
  * Document object. This object is the high level representation of the data.
  *
+ * This class it is not really relevant for this example, I just created a very simple object.
+ *
  * @author Ricardo Lorenzo <unshakablespirit@gmail.com>
  */
 public class Document implements Serializable {
@@ -30,6 +32,12 @@ public class Document implements Serializable {
     private String name;
     private String content;
 
+    /**
+     * Document constructor.
+     *
+     * @param id
+     * @param name
+     */
     public Document(Long id, String name) {
         this.ID = id;
         this.name = name;
@@ -47,6 +55,11 @@ public class Document implements Serializable {
         return this.name;
     }
 
+    /**
+     * Defines the document content.
+     *
+     * @param content
+     */
     public void setContent(String content) {
         this.content = content;
     }

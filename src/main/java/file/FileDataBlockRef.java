@@ -55,6 +55,11 @@ public class FileDataBlockRef implements Serializable {
         return this.byteLength;
     }
 
+    /**
+     * Calculates the number of blocks based on the starting position and the length
+     *
+     * @return
+     */
     public Integer numberOfBlocks() {
         Double relativeLength = this.byteLength.doubleValue() - (Configuration.BLOCK_SIZE - this.byteOffset);
         if(relativeLength > 0) {

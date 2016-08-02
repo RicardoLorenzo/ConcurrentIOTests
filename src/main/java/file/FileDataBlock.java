@@ -59,6 +59,12 @@ public class FileDataBlock {
         return this.ID;
     }
 
+    /**
+     * Retrieves de block position in the file.
+     *
+     * @param blockID
+     * @return
+     */
     public static Integer getBlockPosition(Long blockID) {
         return Long.valueOf(blockID * Configuration.BLOCK_SIZE).intValue();
     }
@@ -67,10 +73,24 @@ public class FileDataBlock {
         return this.data;
     }
 
+    /**
+     * Returns the data length. This is because some blocks can be temporarily smaller than 8K.
+     *
+     * @return
+     */
     public Integer getDataLength() {
         return this.data.length;
     }
 
+    /**
+     * Writes a data array within the block.
+     *
+     * @param data
+     * @param srcByteOffset
+     * @param dstByteOffset
+     * @param length
+     * @throws IOException
+     */
     public void writeAt(byte[] data, Integer srcByteOffset, Integer dstByteOffset, Integer length) throws IOException {
         if(srcByteOffset > data.length || srcByteOffset < 0) {
             throw new IOException("invalid source byte offset");

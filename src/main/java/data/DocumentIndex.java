@@ -35,26 +35,57 @@ import java.util.TreeMap;
 public class DocumentIndex {
     private TreeMap<String, FileDataBlockRef> index;
 
+    /**
+     *  Document Index constructor.
+     */
     public DocumentIndex() {
         this.index = new TreeMap<String, FileDataBlockRef>();
     }
 
+    /**
+     * Document Index constructor.
+     *
+     * @param map
+     */
     public DocumentIndex(TreeMap map) {
         this.index = map;
     }
 
+    /**
+     * Checks if a key is present in the index.
+     *
+     * @param key
+     * @return
+     */
     public Boolean containsKey(String key) {
         return this.index.containsKey(key);
     }
 
+    /**
+     * Returns the datablock reference for the key.
+     *
+     * @param key
+     * @return
+     */
     public FileDataBlockRef getDataBlockRefs(String key) {
         return this.index.get(key);
     }
 
+    /**
+     * Remevoes a key from the index.
+     *
+     * @param key
+     */
     public void removeDataBlockRefs(String key) {
         this.index.remove(key);
     }
 
+    /**
+     * Sets a datablock reference for a key.
+     *
+     * @param key
+     * @param ref
+     */
     public void setDataBlockRefs(String key, FileDataBlockRef ref) {
         this.index.put(key, ref);
     }

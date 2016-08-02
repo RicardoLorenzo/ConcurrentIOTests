@@ -25,6 +25,8 @@ import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
+ * Holds many different configuration and common objects.
+ *
  * @author Ricardo Lorenzo <unshakablespirit@gmail.com>
  */
 public class Configuration {
@@ -42,6 +44,11 @@ public class Configuration {
         fileIndexLocks = new HashMap<String, ReadWriteLock>();
     }
 
+    /**
+     * Gets any resource from the resource path
+     * @param name
+     * @return
+     */
     public static File getResource(String name) {
         URL resource = Configuration.class.getClassLoader().getResource(name);
         if(resource != null && resource.getProtocol().equals("file")) {

@@ -38,6 +38,12 @@ public class FileDataReader {
     private final File file;
     private Long offset;
 
+    /**
+     * File data reader constructor
+     *
+     * @param filename
+     * @throws IOException
+     */
     public FileDataReader(String filename) throws IOException {
         StringBuilder sb = new StringBuilder();
         sb.append(Configuration.getResourcePath());
@@ -59,6 +65,17 @@ public class FileDataReader {
         return Double.valueOf(Math.ceil(numberOfBlocks)).intValue();
     }
 
+    /**
+     * Returns the data blocks from a particular position and length
+     *
+     * @param initialBlock
+     * @param initialOffset
+     * @param numberOfBlocks
+     * @param documentLength
+     * @return
+     * @throws InterruptedException
+     * @throws IOException
+     */
     public List<FileDataBlock> getDataBlocks(final Long initialBlock, final Integer initialOffset,
                                              final Integer numberOfBlocks, final Integer documentLength)
             throws InterruptedException, IOException {
@@ -119,6 +136,13 @@ public class FileDataReader {
         return dataBlocks;
     }
 
+    /**
+     * Retrieves the last block with in a file.
+     *
+     * @return
+     * @throws IOException
+     * @throws InterruptedException
+     */
     public FileDataBlock getLastDataBlock() throws IOException, InterruptedException {
         Long count = countDataBlocks().longValue();
         if(count == 0) {
