@@ -38,6 +38,12 @@ Updates can also require to move the record to different blocks when the updated
 The update process can create some fragmentation in the file. A database defragmentation tool will be useful to
  help with this issue.
 
+Additionally, there are two major things to do in order to improve the performance and the data consistency:
+
+* Resident memory page cache (blocks)
+* Journal mechanism and data checkpoints
+
+
 Motivation
 ==========
 
